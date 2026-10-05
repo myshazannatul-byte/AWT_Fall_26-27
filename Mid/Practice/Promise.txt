@@ -1,0 +1,41 @@
+<script>
+  function getStudentResult(){
+    return new Promise((resolve, reject)=> {
+      console.log("Requesting student result...");
+ 
+      setTimeout(()=> {
+        const success = true;
+        if (success){
+          resolve({
+          id:"23-53088-3",
+          name:"Mysha",
+          department:"CSE",
+          marks:85
+          });
+          }
+        else {
+          reject("Failed to retrive student result");
+        }
+      },3000 );
+    });
+  }
+  async function displayResult()
+  {
+  console.log("Getting student data...");
+  try{
+  const student= await getStudentResult();
+  console.log("Student data received");
+  console.log("ID:",student.id);
+  console.log("Name:", student.name);
+  console.log("Depertment:", student.department);
+  console.log("Marks:", student.marks);
+ 
+  }
+  catch(error){
+  console.log("Error:", error);
+  }
+  }
+  displayResult();
+  </script>
+</script>
+ 
